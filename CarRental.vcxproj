@@ -139,7 +139,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AirConditioner.cpp" />
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="CarRental.cpp" />
+    <ClCompile Include="CruiseControl.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MidRangeCar.cpp" />
+    <ClCompile Include="NavigationSystem.cpp" />
+    <ClCompile Include="PremiumCar.cpp" />
+    <ClCompile Include="SmallCar.cpp" />
+    <ClCompile Include="SpecialEquipment.cpp" />
+    <ClCompile Include="SUV.cpp" />
+    <ClCompile Include="Xenon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AirConditioner.h" />
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="CarRental.h" />
+    <ClInclude Include="CruiseControl.h" />
+    <ClInclude Include="MidRangeCar.h" />
+    <ClInclude Include="MotorVehicle.h" />
+    <ClInclude Include="NavigationSystem.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="PremiumCar.h" />
+    <ClInclude Include="SmallCar.h" />
+    <ClInclude Include="SpecialEquipment.h" />
+    <ClInclude Include="SUV.h" />
+    <ClInclude Include="Xenon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
