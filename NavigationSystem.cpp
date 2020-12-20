@@ -6,8 +6,9 @@
 ////////////////////////////////
 
 #include "NavigationSystem.h"
+using namespace std;
 
-static size_t const price = 15;
+static size_t const price = 20;
 
 NavigationSystem::NavigationSystem(MotorVehicle::SPtr const& vehicle) : SpecialEquipment(vehicle)
 {
@@ -15,14 +16,13 @@ NavigationSystem::NavigationSystem(MotorVehicle::SPtr const& vehicle) : SpecialE
 
 size_t NavigationSystem::GetPrice() const
 {
-	//SpecialEquipment::GetPrice();
 	return price;
 }
 
 void NavigationSystem::Print(std::ostream& ost) const
 {
-	ost << "Navigationssystem vohanden";
-	return;
+	SpecialEquipment::Print(ost);
+	ost << " - Navigationssystem: +" << GetPrice() << " Euro";
 }
 
 std::string NavigationSystem::GetManufacturer() const

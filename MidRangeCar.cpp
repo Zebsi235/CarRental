@@ -23,8 +23,8 @@ size_t MidRangeCar::GetPrice() const
 
 void MidRangeCar::Print(std::ostream& ost) const
 {
-	ost << "MidRangeCar - " << mManufacturer << " - " << 
-		mType << " - " << price << " Euro pro Tag" << endl;
+	ost << "Mid Range - " << mManufacturer << " - " 
+		<< mType << " - Grundpreis: " << GetPrice();
 }
 
 std::string MidRangeCar::GetManufacturer() const

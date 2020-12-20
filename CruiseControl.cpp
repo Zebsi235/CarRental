@@ -6,6 +6,7 @@
 ////////////////////////////////
 
 #include "CruiseControl.h"
+using namespace std;
 
 static size_t const price = 10;
 
@@ -20,8 +21,8 @@ size_t CruiseControl::GetPrice() const
 
 void CruiseControl::Print(std::ostream& ost) const
 {
-	ost << "Tempomat vohanden";
-	return;
+	SpecialEquipment::Print(ost);
+	ost << " - Tempomat: +" << GetPrice() << " Euro";
 }
 
 std::string CruiseControl::GetManufacturer() const

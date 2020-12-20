@@ -32,17 +32,21 @@ int main()
 		MotorVehicle::SPtr car3{ make_shared<SUV>("Mercedes", "GLA") };
 		MotorVehicle::SPtr car4{ make_shared<PremiumCar>("Ferrari", "Testarossa") };
 		MotorVehicle::SPtr car5{ make_shared<SmallCar>("Opel", "Corsa") };
+
+		/*MotorVehicle::SPtr xenon{ make_shared<Xenon>(car1) };
+		MotorVehicle::SPtr navi{ make_shared<NavigationSystem>(car1) };*/
+		MotorVehicle::SPtr klima{ make_shared<AirConditioner>(make_shared<NavigationSystem>(car2)) };
 		CarRental c;
-		//c.Add(car1);
-		//c.Add(car2);
-		c.Add(car3);
-		c.Add(car4);
-		c.Add(make_shared<Xenon>(car1));
-		c.Add(make_shared<NavigationSystem>(car2));
+		c.Add(car1);
+		c.Add(klima);
+		/*c.Add(make_shared<Xenon>(car3));
+		c.Add(make_shared<NavigationSystem>(car1));*/
+		//c.Add(make_shared<NavigationSystem>(car2));
 
 		for (auto const& elem : c.GetAvailable())
 		{
 			elem->Print(cout);
+			cout << endl;
 		}
 		cout << endl;
 		c.PrintAvailable(cout);
@@ -50,7 +54,7 @@ int main()
 		c.PrintReserved(cout);
 
 		c.Reserve(car1);
-		c.Reserve(car4);
+		//c.Reserve(car4);
 		cout << endl;
 		c.PrintAvailable(cout);
 		cout << endl;
@@ -59,16 +63,18 @@ int main()
 		for (auto const& elem : c.GetAvailable())
 		{
 			elem->Print(cout);
+			cout << endl;
 		}
 		cout << endl;
 		for (auto const& elem : c.GetReserved())
 		{
 			elem->Print(cout);
+			cout << endl;
 		}
 		cout << endl;
 
 		c.Back(car1);
-		c.Back(car4);
+		//c.Back(car4);
 
 		c.PrintAvailable(cout);
 		cout << endl;
@@ -77,17 +83,20 @@ int main()
 		for (auto const& elem : c.GetAvailable())
 		{
 			elem->Print(cout);
+			cout << endl;
 		}
 		cout << endl;
 		for (auto const& elem : c.GetReserved())
 		{
 			elem->Print(cout);
+			cout << endl;
 		}
 		cout << endl;
 		c.Add(car5);
 		for (auto const& elem : c.GetAvailable("Opel"))
 		{
 			elem->Print(cout);
+			cout << endl;
 		}
 		cout << endl;
 	}

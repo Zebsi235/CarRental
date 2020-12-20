@@ -23,8 +23,7 @@ size_t PremiumCar::GetPrice() const
 
 void PremiumCar::Print(std::ostream& ost) const
 {
-	ost << "PremiumCar - " << mManufacturer << " - " << 
-		mType << " - " << price << " Euro pro Tag" << endl;
+	ost << "Premium - " << mManufacturer << " - " << mType;
 }
 
 std::string PremiumCar::GetManufacturer() const

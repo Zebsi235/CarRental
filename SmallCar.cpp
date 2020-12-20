@@ -23,8 +23,7 @@ size_t SmallCar::GetPrice() const
 
 void SmallCar::Print(std::ostream& ost) const
 {
-	ost << "SmallCar - " << mManufacturer << " - " << 
-		mType << " - " << price  << " Euro pro Tag" << endl;
+	ost << "Small - " << mManufacturer << " - " << mType << " - Grundpreis: " << GetPrice();
 }
 
 std::string SmallCar::GetManufacturer() const

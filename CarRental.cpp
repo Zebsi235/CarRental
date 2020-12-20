@@ -134,6 +134,7 @@ void CarRental::PrintAvailable(std::ostream& ost) const
 	for(auto& elem : mAvailable)
 	{
 		elem->Print(ost);
+		ost << endl;
 	}
 }
 
@@ -142,5 +143,6 @@ void CarRental::PrintReserved(std::ostream& ost) const
 	for(auto const& elem : mReserved)
 	{
 		elem->Print(ost);
+		ost << endl;
 	}
 }

@@ -7,7 +7,9 @@
 
 #include "Xenon.h"
 
-static size_t const price = 3;
+using namespace std;
+
+static size_t const price = 10;
 
 Xenon::Xenon(MotorVehicle::SPtr const& vehicle) : SpecialEquipment(vehicle)
 {
@@ -21,8 +23,9 @@ size_t Xenon::GetPrice() const
 void Xenon::Print(std::ostream& ost) const
 {
 	SpecialEquipment::Print(ost);
-	ost << " - Xenon Lichter vohanden";
-	return;
+	ost << " - Sonderausstattung: Xenon Lichter - " << 
+		SpecialEquipment::GetPrice() + GetPrice() << 
+		" Euro pro Tag";
 }
 
 std::string Xenon::GetManufacturer() const
