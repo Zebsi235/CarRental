@@ -8,7 +8,7 @@
 #include "MidRangeCar.h"
 using namespace std;
 
-static size_t const price = 100;
+static size_t const price = 150;
 
 MidRangeCar::MidRangeCar(std::string const& manufacturer,
 	std::string const& type) :
@@ -23,8 +23,8 @@ size_t MidRangeCar::GetPrice() const
 
 void MidRangeCar::Print(std::ostream& ost) const
 {
-	ost << "Mid Range - " << mManufacturer << " - " 
-		<< mType << " - Grundpreis: " << GetPrice();
+	ost << "Mittelklasse - " << mManufacturer << " - " 
+		<< mType << endl << "\tGrundpreis:\t\t  " << GetPrice() << " Euro";
 }
 
 std::string MidRangeCar::GetManufacturer() const

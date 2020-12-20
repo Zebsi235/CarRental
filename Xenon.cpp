@@ -23,9 +23,7 @@ size_t Xenon::GetPrice() const
 void Xenon::Print(std::ostream& ost) const
 {
 	SpecialEquipment::Print(ost);
-	ost << " - Sonderausstattung: Xenon Lichter - " << 
-		SpecialEquipment::GetPrice() + GetPrice() << 
-		" Euro pro Tag";
+	ost << endl << "\tXenon Lichter:\t\t  +" << GetPrice() << " Euro";
 }
 
 std::string Xenon::GetManufacturer() const

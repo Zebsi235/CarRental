@@ -15,9 +15,9 @@
 class CarRental : public Object
 {
 public:
-	void Add(MotorVehicle::SPtr const& Car);
-	void Reserve(MotorVehicle::SPtr const& Car);
-	void Back(MotorVehicle::SPtr const& Car);
+	void Add(MotorVehicle::SPtr const& car);
+	void Reserve(MotorVehicle::SPtr const& car);
+	void Back(MotorVehicle::SPtr const& car);
 
 	std::list<MotorVehicle::SPtr> GetAvailable(std::string const& manufacturer = "",
 		std::string const& type = "") const;

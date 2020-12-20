@@ -11,10 +11,8 @@
 
 using namespace std;
 
-list<MotorVehicle::SPtr> SearchCar(
-				list<MotorVehicle::SPtr> list,
-				string const& manufacturer,
-				string const& type)
+list<MotorVehicle::SPtr> SearchCar(list<MotorVehicle::SPtr> list,
+				string const& manufacturer, string const& type)
 {
 	std::list<MotorVehicle::SPtr> foundVehicles;
 
@@ -135,6 +133,7 @@ void CarRental::PrintAvailable(std::ostream& ost) const
 	{
 		elem->Print(ost);
 		ost << endl;
+		ost << endl;
 	}
 }
 
@@ -143,6 +142,7 @@ void CarRental::PrintReserved(std::ostream& ost) const
 	for(auto const& elem : mReserved)
 	{
 		elem->Print(ost);
+		ost << endl;
 		ost << endl;
 	}
 }

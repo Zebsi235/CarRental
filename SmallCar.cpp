@@ -8,7 +8,7 @@
 #include "SmallCar.h"
 using namespace std;
 
-static size_t const price = 50;
+static size_t const price = 100;
 
 SmallCar::SmallCar(std::string const& manufacturer, 
 	std::string const& type) : 
@@ -23,7 +23,8 @@ size_t SmallCar::GetPrice() const
 
 void SmallCar::Print(std::ostream& ost) const
 {
-	ost << "Small - " << mManufacturer << " - " << mType << " - Grundpreis: " << GetPrice();
+	ost << "Kleinwagen - " << mManufacturer << " - "
+		<< mType << endl << "\tGrundpreis:\t\t  " << GetPrice() << " Euro";
 }
 
 std::string SmallCar::GetManufacturer() const

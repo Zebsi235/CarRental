@@ -22,7 +22,7 @@ size_t NavigationSystem::GetPrice() const
 void NavigationSystem::Print(std::ostream& ost) const
 {
 	SpecialEquipment::Print(ost);
-	ost << " - Navigationssystem: +" << GetPrice() << " Euro";
+	ost << endl << "\tNavigationssystem:\t  +" << GetPrice() << " Euro";
 }
 
 std::string NavigationSystem::GetManufacturer() const

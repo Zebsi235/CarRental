@@ -22,7 +22,7 @@ size_t AirConditioner::GetPrice() const
 void AirConditioner::Print(std::ostream& ost) const
 {
 	SpecialEquipment::Print(ost);
-	ost << " - Klimaanlage elektronisch: +" << GetPrice() << " Euro";
+	ost << endl << "\tKlimaanlage elektronisch: +" << GetPrice() << " Euro";
 }
 
 std::string AirConditioner::GetManufacturer() const

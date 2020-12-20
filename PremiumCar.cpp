@@ -8,7 +8,7 @@
 #include "PremiumCar.h"
 using namespace std;
 
-static size_t const price = 200;
+static size_t const price = 250;
 
 PremiumCar::PremiumCar(std::string const& manufacturer,
 	std::string const& type) :
@@ -23,7 +23,8 @@ size_t PremiumCar::GetPrice() const
 
 void PremiumCar::Print(std::ostream& ost) const
 {
-	ost << "Premium - " << mManufacturer << " - " << mType;
+	ost << "Premium - " << mManufacturer << " - "
+		<< mType << endl << "\tGrundpreis:\t\t  " << GetPrice() << " Euro";
 }
 
 std::string PremiumCar::GetManufacturer() const

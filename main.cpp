@@ -33,69 +33,100 @@ int main()
 		MotorVehicle::SPtr car4{ make_shared<PremiumCar>("Ferrari", "Testarossa") };
 		MotorVehicle::SPtr car5{ make_shared<SmallCar>("Opel", "Corsa") };
 
-		/*MotorVehicle::SPtr xenon{ make_shared<Xenon>(car1) };
-		MotorVehicle::SPtr navi{ make_shared<NavigationSystem>(car1) };*/
-		MotorVehicle::SPtr klima{ make_shared<AirConditioner>(make_shared<NavigationSystem>(car2)) };
+		MotorVehicle::SPtr konfig1{ make_shared<AirConditioner>
+			(make_shared<NavigationSystem>(car2)) };
+		MotorVehicle::SPtr konfig2{ make_shared<AirConditioner>
+			(make_shared<CruiseControl>(make_shared<Xenon>
+				(make_shared<NavigationSystem>(car4)))) };
+		MotorVehicle::SPtr konfig3{ make_shared<CruiseControl>(car3) };
+
 		CarRental c;
 		c.Add(car1);
-		c.Add(klima);
-		/*c.Add(make_shared<Xenon>(car3));
-		c.Add(make_shared<NavigationSystem>(car1));*/
-		//c.Add(make_shared<NavigationSystem>(car2));
+		c.Add(konfig1);
+		c.Add(konfig2);
+		c.Add(konfig3);
 
+		cout << "#######################################################" << endl;
+		cout << "Ausgabe der Liste von GetAvailable (ohne Suchkriterien)" << endl;
+		cout << "#######################################################" << endl;
 		for (auto const& elem : c.GetAvailable())
 		{
 			elem->Print(cout);
 			cout << endl;
+			cout << endl;
 		}
 		cout << endl;
+
+		cout << "############################################" << endl;
+		cout << "Ausgabe der verfuegbaren Autos mittels Print" << endl;
+		cout << "############################################" << endl;
 		c.PrintAvailable(cout);
 		cout << endl;
+		cout << "############################################" << endl;
+		cout << "Ausgabe der reservierten Autos mittels Print" << endl;
+		cout << "############################################" << endl;
 		c.PrintReserved(cout);
 
 		c.Reserve(car1);
-		//c.Reserve(car4);
+		c.Reserve(konfig2);
 		cout << endl;
+
+		cout << "#############################################" << endl;
+		cout << "Ausgabe nach zwei Reservierungen (verfuegbar)" << endl;
+		cout << "#############################################" << endl;
 		c.PrintAvailable(cout);
 		cout << endl;
+		cout << "#############################################" << endl;
+		cout << "Ausgabe nach zwei Reservierungen (reserviert)" << endl;
+		cout << "#############################################" << endl;
 		c.PrintReserved(cout);
 		cout << endl;
-		for (auto const& elem : c.GetAvailable())
+
+		cout << "########################################" << endl;
+		cout << "Suche nach bestimmtem Typ (GetReserved)" << endl;
+		cout << "########################################" << endl;
+		for (auto const& elem : c.GetReserved("", "Testarossa"))
 		{
 			elem->Print(cout);
 			cout << endl;
-		}
-		cout << endl;
-		for (auto const& elem : c.GetReserved())
-		{
-			elem->Print(cout);
 			cout << endl;
 		}
 		cout << endl;
 
 		c.Back(car1);
-		//c.Back(car4);
+		c.Back(konfig2);
 
+		cout << "##############################################################" << endl;
+		cout << "Ausgabe nach Zurueckgeben der zwei Reservierungen (verfuegbar)" << endl;
+		cout << "##############################################################" << endl;
 		c.PrintAvailable(cout);
 		cout << endl;
+		cout << "##############################################################" << endl;
+		cout << "Ausgabe nach Zurueckgeben der zwei Reservierungen (reserviert)" << endl;
+		cout << "##############################################################" << endl;
 		c.PrintReserved(cout);
 		cout << endl;
-		for (auto const& elem : c.GetAvailable())
-		{
-			elem->Print(cout);
-			cout << endl;
-		}
-		cout << endl;
-		for (auto const& elem : c.GetReserved())
-		{
-			elem->Print(cout);
-			cout << endl;
-		}
-		cout << endl;
+
 		c.Add(car5);
+
+		cout << "###############################################" << endl;
+		cout << "Suche nach bestimmtem Hersteller (GetAvailable)" << endl;
+		cout << "###############################################" << endl;
 		for (auto const& elem : c.GetAvailable("Opel"))
 		{
 			elem->Print(cout);
+			cout << endl;
+			cout << endl;
+		}
+		cout << endl;
+
+		cout << "################################################" << endl;
+		cout << "Suche nach nicht vorhandenem Auto (GetAvailable)" << endl;
+		cout << "################################################" << endl;
+		for (auto const& elem : c.GetAvailable("Audi", "A5"))
+		{
+			elem->Print(cout);
+			cout << endl;
 			cout << endl;
 		}
 		cout << endl;

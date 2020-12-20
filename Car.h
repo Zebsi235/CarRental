@@ -15,7 +15,7 @@ class Car: public MotorVehicle
 {
 public:
 	size_t GetPrice() const override = 0;
-	void Print(std::ostream& ost) const override;
+	void Print(std::ostream& ost) const override = 0;
 	std::string GetManufacturer() const override = 0;
 	std::string GetType() const override = 0;
 	

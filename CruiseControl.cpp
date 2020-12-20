@@ -22,7 +22,7 @@ size_t CruiseControl::GetPrice() const
 void CruiseControl::Print(std::ostream& ost) const
 {
 	SpecialEquipment::Print(ost);
-	ost << " - Tempomat: +" << GetPrice() << " Euro";
+	ost << endl << "\tTempomat:\t\t  +" << GetPrice() << " Euro";
 }
 
 std::string CruiseControl::GetManufacturer() const

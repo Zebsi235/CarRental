@@ -23,7 +23,8 @@ size_t SUV::GetPrice() const
 
 void SUV::Print(std::ostream& ost) const
 {
-	ost << "SUV - " << mManufacturer << " - " << mType;
+	ost << "SUV - " << mManufacturer << " - "
+		<< mType << endl << "\tGrundpreis:\t\t  " << GetPrice() << " Euro";
 }
 
 std::string SUV::GetManufacturer() const
