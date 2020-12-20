@@ -13,11 +13,16 @@
 class NavigationSystem : public SpecialEquipment
 {
 public:
+	//custom CTor
 	NavigationSystem(MotorVehicle::SPtr const& vehicle);
+
+	//Get functions
 	size_t GetPrice() const override;
-	void Print(std::ostream& ost) const override;
 	std::string GetManufacturer() const override;
 	std::string GetType() const override;
+
+	//Print function
+	void Print(std::ostream& ost) const override;
 };
 
 #endif

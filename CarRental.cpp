@@ -2,7 +2,7 @@
 // Workfile : CarRental.cpp
 // Date : 19.12.2020
 // Name : Sebastian Mueck
-// Description : Client CarRental
+// Description : Client class for managing the car rental
 ////////////////////////////////
 
 #include "CarRental.h"
@@ -11,6 +11,7 @@
 
 using namespace std;
 
+//internal function searching for the specific type or manufacturer
 list<MotorVehicle::SPtr> SearchCar(list<MotorVehicle::SPtr> list,
 				string const& manufacturer, string const& type)
 {
@@ -61,6 +62,7 @@ list<MotorVehicle::SPtr> SearchCar(list<MotorVehicle::SPtr> list,
 	return foundVehicles;
 }
 
+//Adds vehicle or special equipment to mAvailable list 
 void CarRental::Add(MotorVehicle::SPtr const& car)
 {
 	if(car == nullptr)
@@ -71,6 +73,8 @@ void CarRental::Add(MotorVehicle::SPtr const& car)
 	mAvailable.emplace_back(car);
 }
 
+//searches for a car in the list and reserves it 
+//if its found
 void CarRental::Reserve(MotorVehicle::SPtr const& car)
 {
 	if (car == nullptr)
@@ -80,10 +84,14 @@ void CarRental::Reserve(MotorVehicle::SPtr const& car)
 
 	list<MotorVehicle::SPtr>::iterator it;
 
+	//search mAvailable list 
 	it = find(mAvailable.begin(), mAvailable.end(), car);
+	//if car is found
 	if (it != mAvailable.end())
 	{
+		//remove it in mAvailable
 		mAvailable.remove(car);
+		//add it to the mReserved list
 		mReserved.emplace_back(car);
 	}
 	else
@@ -101,10 +109,14 @@ void CarRental::Back(MotorVehicle::SPtr const& car)
 
 	list<MotorVehicle::SPtr>::iterator it;
 
+	//search mReserved list 
 	it = find(mReserved.begin(), mReserved.end(), car);
+	//if car is found
 	if (it != mReserved.end())
 	{
+		//remove it in mReserved
 		mReserved.remove(car);
+		//add it to the mAvailable list
 		mAvailable.emplace_back(car);
 	}
 	else
@@ -113,6 +125,8 @@ void CarRental::Back(MotorVehicle::SPtr const& car)
 	}
 }
 
+//uses internal function to search for cars 
+//and return them (in mAvailable)
 std::list<MotorVehicle::SPtr> CarRental::GetAvailable(
 				std::string const& manufacturer,
 				std::string const& type) const
@@ -120,6 +134,8 @@ std::list<MotorVehicle::SPtr> CarRental::GetAvailable(
 	return SearchCar(mAvailable, manufacturer, type);
 }
 
+//uses internal function to search for cars 
+//and return them (in mReserved)
 std::list<MotorVehicle::SPtr> CarRental::GetReserved(
 	std::string const& manufacturer,
 	std::string const& type) const
@@ -127,6 +143,7 @@ std::list<MotorVehicle::SPtr> CarRental::GetReserved(
 	return SearchCar(mReserved, manufacturer, type);
 }
 
+//Prints all cars in mAvailable 
 void CarRental::PrintAvailable(std::ostream& ost) const
 {
 	for(auto& elem : mAvailable)
@@ -137,6 +154,7 @@ void CarRental::PrintAvailable(std::ostream& ost) const
 	}
 }
 
+//Prints all cars in mReserved
 void CarRental::PrintReserved(std::ostream& ost) const
 {
 	for(auto const& elem : mReserved)

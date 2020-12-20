@@ -13,7 +13,10 @@
 class SUV : public Car
 {
 public:
+	//custom ctor which sets mManufacturer and mType
 	SUV(std::string const& manufacturer, std::string const& type);
+
+	//overwritten Get and Print functions
 	size_t GetPrice() const override;
 	void Print(std::ostream& ost) const override;
 	std::string GetManufacturer() const override;
